@@ -1,6 +1,6 @@
 #
 .DEFAULT_GOAL:=	help
-.PHONY:		db deploy help
+.PHONY:		db deploy help lint
 
 #
 db::		# Migrate database
@@ -11,5 +11,8 @@ deploy::	# Deploy application
 
 help::		# Show this help
 	@grep -E '^[a-zA-Z_-]+::' GNUmakefile | sort | awk -F'[:#]' '{print $$1 ":\t" $$NF}'
+
+lint::		# Run PHP CodeSniffer
+	./vendor/bin/phpcs src/
 
 -include GNUmakefile.local
