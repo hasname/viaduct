@@ -1,6 +1,6 @@
 #
 .DEFAULT_GOAL:=	help
-.PHONY:		db deploy help lint
+.PHONY:		db deploy help lint test
 
 #
 db::		# Migrate database
@@ -14,5 +14,8 @@ help::		# Show this help
 
 lint::		# Run PHP CodeSniffer
 	./vendor/bin/phpcs public/ src/
+
+test::		# Run PHPUnit tests
+	./vendor/bin/phpunit tests/
 
 -include GNUmakefile.local
