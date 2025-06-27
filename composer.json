@@ -5,5 +5,7 @@
             "Hasname\\Viaduct\\": "src/"
         }
     },
-    "require": {}
+    "require-dev": {
+        "robmorgan/phinx": "^0.16.9"
+    }
 }
