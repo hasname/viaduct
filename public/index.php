@@ -12,4 +12,10 @@
  * @link     https://github.com/hasname/viaduct
  */
 
-header('Location: https://github.com/hasname/viaduct');
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hasname\Viaduct\App;
+
+$app = new App();
+$response = $app->handleRoot();
+$app->sendResponse($response);

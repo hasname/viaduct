@@ -13,7 +13,7 @@ help::		# Show this help
 	@grep -E '^[a-zA-Z_-]+::' GNUmakefile | sort | awk -F'[:#]' '{print $$1 ":\t" $$NF}'
 
 lint::		# Run PHP CodeSniffer
-	./vendor/bin/phpcs public/ src/
+	./vendor/bin/phpcs public/ src/ tests/
 
 test::		# Run PHPUnit tests
 	./vendor/bin/phpunit tests/
