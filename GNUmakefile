@@ -1,6 +1,6 @@
 #
 .DEFAULT_GOAL:=	help
-.PHONY:		db help
+.PHONY:		db deploy help
 
 #
 db::		# Migrate database
