@@ -24,5 +24,6 @@ return [
 
     'aliases' => [
         'Route' => Illuminate\Support\Facades\Route::class,
+        'View' => Illuminate\Support\Facades\View::class,
     ],
 ];
