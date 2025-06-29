@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main entry point that redirects to the GitHub repository.
+ * Laravel entry point.
  *
  * PHP version 8.0
  *
@@ -12,10 +12,16 @@
  * @link     https://github.com/hasname/viaduct
  */
 
+use Illuminate\Http\Request;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Hasname\Viaduct\App;
+$app = include_once __DIR__.'/../bootstrap/app.php';
 
-$app = new App();
-$response = $app->handleRoot();
-$app->sendResponse($response);
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);

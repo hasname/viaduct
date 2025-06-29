@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Smoke tests for the Viaduct application.
+ * Smoke tests for the Viaduct application using Laravel.
  *
  * PHP version 8.0
  *
@@ -15,10 +15,10 @@
 namespace Hasname\Viaduct\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Hasname\Viaduct\App;
+use App\Http\Controllers\HomeController;
 
 /**
- * Basic smoke tests to verify core functionality.
+ * Basic smoke tests to verify core functionality with Laravel.
  *
  * @category Tests
  * @package  Hasname\Viaduct\Tests
@@ -29,19 +29,19 @@ use Hasname\Viaduct\App;
 class SmokeTest extends TestCase
 {
     /**
-     * Test that the root route returns the correct redirect.
+     * Test that the HomeController returns the correct redirect.
      *
      * @return void
      */
-    public function testRootRouteReturnsCorrectRedirect(): void
+    public function testHomeControllerReturnsCorrectRedirect(): void
     {
-        $app = new App();
-        $response = $app->handleRoot();
+        $controller = new HomeController();
+        $response = $controller->index();
 
-        $this->assertSame(302, $response['status']);
+        $this->assertSame(302, $response->getStatusCode());
         $this->assertSame(
             'https://github.com/hasname/viaduct',
-            $response['location']
+            $response->getTargetUrl()
         );
     }
 }
