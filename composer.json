@@ -1,0 +1,10 @@
+{
+    "name": "hasname/viaduct",
+    "authors": [
+        {
+            "name": "Gea-Suan Lin",
+            "email": "gslin@gslin.org"
+        }
+    ],
+    "require": {}
+}
