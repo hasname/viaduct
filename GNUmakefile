@@ -1,6 +1,6 @@
 #
 .DEFAULT_GOAL:=	default
-.PHONY:		clean default install lint test
+.PHONY:		clean default deploy install lint test
 
 #
 clean::
@@ -9,7 +9,10 @@ clean::
 default:: lint test
 	@false
 
-install::
+deploy:: install
+	rsync -Favz --delete-after ./ ${SSH_USER}@${SSH_HOST}:/srv/viaduct.hasname.com/
+
+install:: clean
 	composer install
 
 lint:: install
@@ -17,3 +20,5 @@ lint:: install
 
 test:: install
 	./vendor/bin/phpunit tests/
+
+-include GNUmakefile.local
