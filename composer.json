@@ -6,5 +6,7 @@
             "email": "gslin@gslin.org"
         }
     ],
-    "require": {}
+    "require": {
+        "slim/slim": "^4.14"
+    }
 }
