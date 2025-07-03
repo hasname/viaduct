@@ -5,4 +5,5 @@ require __DIR__ . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 
 $app = AppFactory::create();
+$app->addErrorMiddleware(false, false, false);
 $app->run();
