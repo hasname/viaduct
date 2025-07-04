@@ -7,7 +7,7 @@ clean::
 	rm -fr vendor/
 
 default:: lint test
-	@false
+	@true
 
 deploy:: install
 	rsync -Favz --delete-after ./ ${SSH_USER}@${SSH_HOST}:/srv/viaduct.hasname.com/
